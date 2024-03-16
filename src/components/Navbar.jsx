@@ -15,10 +15,10 @@ const Navbar = () => {
 
                 {/* Desktop menu */}
                 <div className="hidden md:flex space-x-4">
-                    <a href="/" className="text-white">Home</a>
-                    <a href="/bookings" className="text-white">Bookings</a>
-                    <a href="/contact" className="text-white">Contact</a>
-                    <a href="/login" className="text-white font-bold">Login</a>
+                    <Link to="/" className="text-white">Home</Link>
+                    <Link to="/bookings" className="text-white">Bookings</Link>
+                    <Link to="/contact" className="text-white">Contact</Link>
+                    <Link to="/login" className="text-white font-bold">Login</Link>
                     <Link to="/register" className="text-white hover:underline font-bold">Register</Link>
 
 
