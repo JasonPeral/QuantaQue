@@ -13,7 +13,6 @@ const Navbar = () => {
                     QuantaQue
                 </a>
 
-                {/* Desktop menu */}
                 <div className="hidden md:flex space-x-4">
                     <Link to="/" className="text-white">Home</Link>
                     <Link to="/bookings" className="text-white">Bookings</Link>
@@ -24,7 +23,6 @@ const Navbar = () => {
 
                 </div>
 
-                {/* Hamburger button */}
                 <div className="md:hidden flex items-center">
                     <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white">
                         ☰
@@ -32,7 +30,6 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden container mx-auto mt-2">
                     <a href="/" className="block py-2 text-white border-t border-white">Home</a>
