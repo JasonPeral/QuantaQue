@@ -5,7 +5,6 @@ const UsageSection = () => {
         <section className="bg-blue-50 py-20">
             <div className="container mx-auto flex flex-wrap items-center">
                 
-                {/* Textual guide */}
                 <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
                     <h2 className="text-2xl md:text-3xl mb-6 font-semibold">
                         How to Use QuantaQue
@@ -18,11 +17,9 @@ const UsageSection = () => {
                     </ol>
                 </div>
                 
-                {/* Visual aid */}
                 <div className="w-full md:w-1/2 flex justify-center">
-                    {/* Replace with your visual guide or image */}
-                    <div className="bg-gray-200 h-64 w-64 flex items-center justify-center">
-                        <span className="text-gray-400 text-xl">Visual Aid Here</span>
+                    <div className=" w-66 flex items-center justify-center">
+                       <img className="text-gray-400 text-xl" src="./Handshake.webp" alt="" />
                     </div>
                 </div>
             </div>
