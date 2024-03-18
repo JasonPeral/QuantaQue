@@ -16,7 +16,7 @@ app.use(cors({
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://jasonperal:V4-manhuhoxu@quantaque.dvlmr5b.mongodb.net/?retryWrites=true&w=majority&appName=QuantaQue", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://jasonperal:<Password>@quantaque.dvlmr5b.mongodb.net/?retryWrites=true&w=majority&appName=QuantaQue", { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB...', err));
 
