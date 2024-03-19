@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent the default form submission
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (response.ok) {
+                
+                navigate("/");
+            } else {
+                console.error("Failed to log in");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
@@ -9,7 +35,7 @@ function LoginPage() {
                         Sign in to your account
                     </h2>
                 </div>
-                <form className="mt-8 space-y-6" action="#" method="POST">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <input type="hidden" name="remember" value="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
                         <div>
@@ -22,6 +48,8 @@ function LoginPage() {
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Email address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div>
@@ -34,29 +62,12 @@ function LoginPage() {
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input
-                                id="remember_me"
-                                name="remember_me"
-                                type="checkbox"
-                                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                            />
-                            <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                                Remember me
-                            </label>
-                        </div>
-
-                        <div className="text-sm">
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                Forgot your password?
-                            </a>
-                        </div>
-                    </div>
 
                     <div>
                         <button

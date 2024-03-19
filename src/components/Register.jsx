@@ -1,9 +1,10 @@
 import React from 'react';
 const apiUrl = import.meta.env.VITE_API_URL;
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import {useState} from 'react';
 
 const Register = () => {
+    const navigate = useNavigate();
     // const [redirectToLogin, setRedirectToLogin] = useState(false);
 
     const handleSubmit = async (event) => {
@@ -30,7 +31,7 @@ const Register = () => {
             if (response.ok) {
                 const result = await response.json();
                 console.log(result); 
-                // setRedirectToLogin(true);
+                navigate('/login');
             } else {
                 console.error('Failed to register'); // Handle errors, e.g., showing an error message
             }
